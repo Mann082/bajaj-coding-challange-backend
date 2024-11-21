@@ -13,6 +13,9 @@ const processData = (data) => {
     const highestLowercaseAlphabet = lowercaseAlphabets.sort().slice(-1); // Get highest lowercase alphabet
     const isPrimeFound = numbers.some(num => isPrime(parseInt(num, 10))); // Check if any prime exists
 
+    let output={};
+    if(numbers && numbers.length!=0)output.number
+
     return { numbers, alphabets, highestLowercaseAlphabet, isPrimeFound };
 };
 
