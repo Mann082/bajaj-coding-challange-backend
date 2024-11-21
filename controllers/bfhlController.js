@@ -1,7 +1,7 @@
 const { validateBase64File } = require('../utils/fileUtils');
 const { processData, parseJsonString } = require('../utils/dataUtils');
 
-const handlePostRequest = (req, res) => {
+const handlePostRequest = async(req, res) => {
     const { input } = req.body; 
     console.log(input);
     // Expecting a single "input" field containing the JSON string
@@ -23,7 +23,7 @@ const handlePostRequest = (req, res) => {
     const { numbers, alphabets, highestLowercaseAlphabet, isPrimeFound } = processData(jsonData);
 
     // Validate file
-    const fileValidation = validateBase64File(file_b64);
+    const fileValidation = await validateBase64File(file_b64);
 
     res.status(200).json({
         is_success: true,
